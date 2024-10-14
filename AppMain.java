@@ -24,8 +24,8 @@ public class AppMain { //CLASS ABRE
 		//ej213();
 		//ej214();
 		//ej215();
-		ej216();
-		//ej217();
+		//ej216();
+		ej217();
 		//ej218();
 		//ej220();
 		//ej221();
@@ -244,7 +244,7 @@ public class AppMain { //CLASS ABRE
 							acondicionado.”; si la temperatura es de 18 grados el mensaje debería ser “Para el aire
 							acondicionado.”. Se considera que el aire debe activarse a partir de los 21 grados.*/
 
-		System.out.println("  Ejercicio numero 214:");
+		System.out.println("  Ejercicio numero 215:");
 		System.out.println("  Vamos a hecer un termostato.");
 		System.out.println("Dime la temperatura en grados Celsius: ");
 		int temperatura = sc.nextInt();
@@ -268,7 +268,36 @@ public class AppMain { //CLASS ABRE
 							Incluir mensajes de bienvenida, instrucciones y reglas y de comunicación del resultado.	*/
 		
 		System.out.println("  Ejercicio numero 217:");
-		System.out.println("  Buena suerte con el resto!!");
+		int respuesta = (int) (Math.random()*100+1);
+		//System.out.println("BIENVENIDO, VAMOS A JUGAR A UN JUEGO");
+		System.out.println("Voy a pensar un número del uno al cien y tienes que adivinarlo");
+	
+		int contador = 0;
+		boolean salir = false;
+		
+		System.out.println("Dime un número: ");
+		int numero = sc.nextInt();
+		contador=contador+1;
+				
+		do {
+			
+			if (numero<respuesta) {
+				System.out.println("La respuesta es mayor, dime otro: ");
+				numero = sc.nextInt();
+				contador=contador+1;
+			}
+			else if (numero>respuesta) {
+				System.out.println("La respuesta es menor, dime otro: ");
+				numero = sc.nextInt();
+				contador=contador+1;
+			}	
+			else /*(numero==respuesta)*/ {
+				System.out.println("Has acertado! FIN DEL JUEGO ");
+				System.out.println("Has tardado "+contador+" intentos.");
+				salir=true;
+			}	
+				
+		} while (salir==false);
 	}  //CIERRA EL EJ 217
 	public void ej218() { /*Genera una nueva versión del programa 217, para que sea la máquina la que adivine el número.*/
 		
