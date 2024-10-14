@@ -24,8 +24,8 @@ public class AppMain { //CLASS ABRE
 		//ej213();
 		//ej214();
 		//ej215();
-		//ej216();
-		ej217();
+		ej216();
+		//ej217();
 		//ej218();
 		//ej220();
 		//ej221();
@@ -258,7 +258,15 @@ public class AppMain { //CLASS ABRE
 							cuenta que las 14 es la hora de comer, y por tanto es tiempo libre.*/
 		
 		System.out.println("  Ejercicio numero 216:");
-		System.out.println("  Buena suerte con el resto!!");
+		System.out.println("  Programa que decide una accion segun la hora que sea en el lugar de trabajo");
+		System.out.println("Dime que hora es: ");
+		String HoraMinutos = sc.next();
+
+	    int hourMinuts = Integer.parseInt(HoraMinutos);
+
+	    System.out.println(hourMinuts);
+		
+		
 	}  //CIERRA EL EJ 216
 	public void ej217() { /*Adivinar un número entre 1 y 100.
 							Se genera un número aleatorio entre 1 y 100 y el usuario debe de adivinar el número. El
