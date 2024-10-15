@@ -26,8 +26,8 @@ public class AppMain { //CLASS ABRE
 		//ej215();
 		//ej216();
 		//ej217();
-		ej218();
-		//ej220();
+		//ej218();
+		ej220();
 		//ej221();
 		//ej222();
 		//ej223();
@@ -347,8 +347,48 @@ public class AppMain { //CLASS ABRE
 							b) Valor mínimo almacenado en un array de enternos.
 							c) Media aritmé􀆟ca de los valores almacenados en el array.*/
 		
+		/* for (int i = 0; i < cars.length; i++) {
+		      System.out.println(cars[i]);
+		    } */
+		
 		System.out.println("  Ejercicio numero 220:");
-		System.out.println("  Buena suerte con el resto!!");
+		System.out.println("  Introduce un array de cinco enteros:");
+		System.out.println("Dime el primer valor:");
+		int a = sc.nextInt();
+		System.out.println("Dime el segundo valor:");
+		int b = sc.nextInt();
+		System.out.println("Dime el tercero valor:");
+		int c = sc.nextInt();
+		System.out.println("Dime el cuarto valor:");
+		int d = sc.nextInt();
+		System.out.println("Dime el quinto valor:");
+		int e = sc.nextInt();
+		int[] numeros = {a, b, c, d, e};
+		
+		float media, sum = 0;
+	    int length = numeros.length; // Get the length of the array
+	    for (int i : numeros) {  // Loop through the elements of the array
+	      sum += i;
+	    }
+	    media = sum / length;  // Calculate the average by dividing the sum by the length
+			 
+	    int minimo = numeros[0];  // Create a 'lowest age' variable and assign the first array element of ages to it
+	    for (int i2 : numeros) {  // Loop through the elements of the ages array to find the lowest age    
+	      if (minimo > i2) {  // Check if the current age is smaller than the current 'lowest age'
+	        minimo = i2;  // If the smaller age is found, update 'lowest age' with that element
+	      }
+	    }
+	    
+	    int maximo = numeros[0];  // Create a 'max age' variable and assign the first array element of ages to it
+	    for (int i3 : numeros) {  // Loop through the elements of the ages array to find the max age    
+	      if (maximo < i3) {  // Check if the current age is mas grande than the current 'lowest age'
+	        maximo = i3;  // If the mayor age is found, update 'lowest age' with that element
+	      }
+	    }
+	    
+		System.out.println("El valor máximo almacenado en el array es de: "+maximo);
+		System.out.println("El valor minimo almacenado en el array es de: "+minimo);
+		System.out.println("La media de los valores almacenados en el array es de: "+media);
 	}  //CIERRA EL EJ 220
 	public void ej221() { /*Diseñar una función que , genere un número aleatorio y en función de su valor, retorne un
 							carácter de acuerdo a la siguiente regla:
