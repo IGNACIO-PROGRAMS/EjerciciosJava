@@ -24,9 +24,9 @@ public class AppMain { //CLASS ABRE
 		//ej213();
 		//ej214();
 		//ej215();
-		ej216();
+		//ej216();
 		//ej217();
-		//ej218();
+		ej218();
 		//ej220();
 		//ej221();
 		//ej222();
@@ -259,13 +259,17 @@ public class AppMain { //CLASS ABRE
 		
 		System.out.println("  Ejercicio numero 216:");
 		System.out.println("  Programa que decide una accion segun la hora que sea en el lugar de trabajo");
-		System.out.println("Dime que hora es: ");
-		String HoraMinutos = sc.next();
-
-	    int hourMinuts = Integer.parseInt(HoraMinutos);
-
-	    System.out.println(hourMinuts);
-		
+		System.out.println("Dime que hora es (en formato Hora:Minutos): ");
+		String horaminutos = sc.next();
+		String[] fragmentos = horaminutos.split(":");
+		int hora = Integer.parseInt(fragmentos[0]);
+		int minutos = Integer.parseInt(fragmentos[1]);
+	    // System.out.println(hora);
+	    // System.out.println(minutos);  Para comprobar que lo hacia bien.
+		if (hora>=9 && hora<14) {System.out.println("Es hora de trabajar, es por la mañana.");}
+		else if (hora>=14 && hora<16) {System.out.println("Tiempo libre, hora de comer.");}
+		else if (hora>=16 && hora<19) {System.out.println("Es hora de trabajar, es por la tarde.");}
+		else {System.out.println("No es hora de trabajar. Disfruta.");}
 		
 	}  //CIERRA EL EJ 216
 	public void ej217() { /*Adivinar un número entre 1 y 100.
@@ -278,7 +282,7 @@ public class AppMain { //CLASS ABRE
 		System.out.println("  Ejercicio numero 217:");
 		int respuesta = (int) (Math.random()*100+1);
 		//System.out.println("BIENVENIDO, VAMOS A JUGAR A UN JUEGO");
-		System.out.println("Voy a pensar un número del uno al cien y tienes que adivinarlo");
+		System.out.println("Voy a pensar un número del uno al cien y tienes que adivinarlo.");
 	
 		int contador = 0;
 		boolean salir = false;
@@ -310,7 +314,33 @@ public class AppMain { //CLASS ABRE
 	public void ej218() { /*Genera una nueva versión del programa 217, para que sea la máquina la que adivine el número.*/
 		
 		System.out.println("  Ejercicio numero 218:");
-		System.out.println("  Buena suerte con el resto!!");
+		System.out.println("Tienes que pensar un número del uno al cien y yo lo voy a adivinar");
+		int nmax = 100;
+		int nmin = 0;
+		int contador = 1;
+		int numero = ((nmax-nmin)/2)+nmin;
+		boolean salir = false;
+		String respuesta;
+		
+		do {
+			System.out.println("El numero es el "+numero+"? Dime \"si\",si el número es \"mayor\" o si es \"menor\".");
+			respuesta = sc.next();
+			if (respuesta.equals("si")) {
+				System.out.println("He acertado."); salir=true;
+				System.out.println("He tardado "+contador+" intentos.");
+			}
+			else if (respuesta.equals("mayor")) {
+				nmin = numero;
+				numero = ((nmax-nmin)/2)+nmin;
+				contador=contador+1;
+			}
+			else if (respuesta.equals("menor")) {
+				nmax = numero;
+				numero = ((nmax-nmin)/2)+nmin;
+				contador=contador+1;
+			}
+			else {System.out.println("Por favor responde sólo con: \"si\", \"mayor\" o \"menor\".");}
+		} while (salir==false);	
 	}  //CIERRA EL EJ 218
 	public void ej220() { /*Diseñar 3 funciones que devuelvan:
 							a) Valor máximo almacenado en un array de enteros.
