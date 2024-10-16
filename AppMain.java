@@ -27,16 +27,29 @@ public class AppMain { //CLASS ABRE
 		//ej216();
 		//ej217();
 		//ej218();
-		ej220();
+		//ej220();
 		//ej221();
 		//ej222();
-		//ej223();
+		ej223();
 		//ej224();
 		//ej225();
 		//ej226();
 		//ej227();
 		//ej228();
 		//ej229();
+		//ej229B();
+		//ej22A();
+		//ej22B();
+		//ej22C();
+		//ej22D();
+		//ej22E();
+		//ej230();
+		//ej232();
+		//ej233();
+		//ej234();
+		//ej235();
+		//ej236();
+		
 		System.out.println("Fin de la aplicación");
 		
 	}
@@ -397,48 +410,218 @@ public class AppMain { //CLASS ABRE
 							 Si el número es > 0,9, devuelve un ‘2’*/
 		
 		System.out.println("  Ejercicio numero 221:");
-		System.out.println("  Buena suerte con el resto!!");
+		System.out.println("  Voy a generar un caracter aleatorio :).");
+		double aleatorio = Math.random();
+		
+		String respuesta = "y";
+		do {
+			
+		if (aleatorio>=0 & aleatorio<=0.7) {System.out.println("Caracter generado: 1");}
+		else if (aleatorio>0.7 & aleatorio<=0.9) {System.out.println("Caracter generado: X");}
+		else if (aleatorio>0.9) {System.out.println("Caracter generado: X");}
+		System.out.println("Quieres repetir? Y/N");
+		respuesta = sc.next();
+		aleatorio = Math.random();
+		} while (respuesta.equals("y") || respuesta.equals("Y"));
+		
 	}  //CIERRA EL EJ 221
 	public void ej222() { /*Diseña 2 funciones que acepten como parámetro un array de enteros y:
 							a) Muestren los valores del array separados por el símbolo ‘ ; ’
 							b) Incrementa en 1 los valores del array y los muestra*/
 		
 		System.out.println("  Ejercicio numero 222:");
-		System.out.println("  Buena suerte con el resto!!");
+		System.out.println("Vas a darme un array de enteros y te voy a mostrar un listado y sumarle uno a todos :).");
+
+		int arraySize; //Variable para el tamaño de la array
+				
+		System.out.println("Dime el tamaño de la array:");
+		arraySize=sc.nextInt(); // Guardamos el tamaño de la array
+		
+		int array[]= new int[arraySize]; //Definimos la array con la variable del tamaño
+		
+		System.out.println("Dime los enteros del array");
+		for (int i = 0; i < array.length; i++) {
+			array[i]=sc.nextInt();  //Guardamos cada valor en su posicion
+		}
+		
+		System.out.println("Los datos del array son:");
+		for (int agh : array) {
+			  System.out.println(agh);
+			}
+		System.out.println("Y los datos mas uno son:");
+		for (int agh : array) {
+			  System.out.println(agh+1);
+			}
+		
 	}  //CIERRA EL EJ 222
 	public void ej223() { /*Dado un array de enteros, mostrar por pantalla sólo los valores pares.*/
 		
 		System.out.println("  Ejercicio numero 223:");
 		System.out.println("  Buena suerte con el resto!!");
 	}  //CIERRA EL EJ 223
-	public void ej224() { /**/
+	public void ej224() { /*Pedir una cadena e inver􀆟r el orden de las palabras que con􀆟ene. Mostrar el resultado en
+							pantalla.*/
 		
 		System.out.println("  Ejercicio numero 224:");
 		System.out.println("  Buena suerte con el resto!!");
 	}  //CIERRA EL EJ 224
-	public void ej225() { /**/
+	public void ej225() { /*Digito de control en DNI: El algoritmo de cálculo del dígito de control es el siguiente:Se divide el
+							número entre 23 y el resto se sus􀆟tuye por una letra que se determina por inspección mediante
+							la siguiente tabla:
+							RESTO 0  1  2  3  4  5  6  7  8  9  10  11
+							LETRA T  R  W  A  G  M  Y  F  P  D  X   B
+							RESTO 12  13  14  15  16  17  18  19  20  21  22
+							LETRA N   J   Z   S   Q   V   H   L   C   K   E
+							Por ejemplo, si el número del DNI es 12345678, dividido entre 23 da de resto 14, luego la letra
+							sería la Z: 12345678Z.*/
 		
 		System.out.println("  Ejercicio numero 225:");
 		System.out.println("  Buena suerte con el resto!!");
 	}  //CIERRA EL EJ 225
-	public void ej226() { /**/
+	public void ej226() { /*Realiza un programa que genere un pronós􀆟co de resultados de forma automá􀆟ca. El resultado
+							se mostrará por pantalla:
+							Par􀆟do Resultado
+							1 [1,X,2]
+							…
+							15 [1,X,2]
+							U􀆟liza la función que diseñaste en el ejercicio 221*/
 		
 		System.out.println("  Ejercicio numero 226:");
 		System.out.println("  Buena suerte con el resto!!");
 	}  //CIERRA EL EJ 226
-	public void ej227() { /**/
+	public void ej227() { /*Quiniela
+							Genera 3 pronós􀆟cos, almacenando todos los valores en un array. Imprime los resultados como
+							si fuese una quiniela de 3 apuestas. U􀆟liza los resultados del ejercicio 226*/
 		
 		System.out.println("  Ejercicio numero 227:");
 		System.out.println("  Buena suerte con el resto!!");
 	}  //CIERRA EL EJ 227
-	public void ej228() { /**/
+	public void ej228() { /*Conversor Binario Decimal
+							Escribir un programa , que permita introducir un número binario de cualquier longitud y calcule
+							el número decimal asociado y viceversa.
+							Pasos a seguir
+							Paso 1: Se definirá un array en el código y se invocará a una función, presentando su valor.
+							Paso 2: La introducción será desde teclado, leyendo un String, aprovechando la función
+							codificada en la primera versión.
+							Paso 3: Añadir una función adicional para que realice la conversión inversa: dado un número
+							decimal, calcular su correspondiente en binario.
+							Paso 4: Hacer un pequeño menú con dos opciones:
+							1.- Conver􀆟r binario a decimal
+							2.- Conver􀆟r decimal a binario
+							0.- Salir del programa*/
 	
 	System.out.println("  Ejercicio numero 228:");
 	System.out.println("  Buena suerte con el resto!!");
-}  //CIERRA EL EJ 228
-	public void ej229() { /**/
+	}  //CIERRA EL EJ 228
+	public void ej229() { /*Estación meteorológica
+							En una estación meteorológica registramos la temperatura (en grados cen􀆡grados) en cada hora
+							durante el día. Almacenamos el resultado en un vector de 24 componentes.
+							Diseña un programa que muestre un menú con las siguientes acciones:
+							1. Rellenar el vector de forma manual. Esta funcionalidad permite al usuario rellenar
+							manualmente cada uno de los 24 elementos.
+							2. Rellenar el vector de forma aleatoria. Los 24 elementos del vector se rellenan de forma
+							aleatoria, con valores entre 0 y 40.
+							3. Mostrar datos. Muestra los datos almacenados en el vector.
+							4. Obtener máximos y mínimos. Muestra las temperaturas máxima y mínima del día, así
+							como la hora en la que se dan.
+							5. Temperatura media. Calcula la temperatura media del día.
+							6. Salir. Sale del programa.
+							Ayuda. Para generar un número aleatorio en Java, se debe u􀆟lizar la siguiente sentencia: int
+							numero = (int) (Math.random() * limite) ; Donde “limite” representa el límite superior del rango,
+							en este caso, 41.*/
 	
 	System.out.println("  Ejercicio numero 229:");
 	System.out.println("  Buena suerte con el resto!!");
-}  //CIERRA EL EJ 229
+	}  //CIERRA EL EJ 229
+	public void ej229B() { /*Conversor Decimal Hexadecimal
+							Escribir un programa , que permita introducir un número decimal entre 0 y 65536 y calcule el
+							número hexadecimal asociado. Como segunda opción permitirá introducir un número
+							hexadecimal de hasta 4 digitos y obtendrá su correspondiente decimal.
+							Notas para la implementación
+							- Si el número hexadecimal posee menos de 4 digitos, se rellenan los faltantes con 0.*/
+		System.out.println("  Ejercicio numero 229B:");
+		System.out.println("  Buena suerte con el resto!!");
+	}  //CIERRA EL EJ 229B
+	public void ej22A() { /*Coste telefónico
+							La política de cobro de una compañía telefónica es: cuando se realiza una llamada, el cobro es
+							por el tiempo que ésta dura, de tal forma que los primeros cinco minutos cuestan 1 euro por
+							minuto, los siguientes tres, 80 céntimos, los siguientes dos minutos, 70 céntimos, y a partir del
+							décimo minuto, 50 céntimos.
+							Además, se carga un impuesto de 3 % cuando es domingo, y si es otro día, en turno de mañana,
+							15 %, y en turno de tarde, 10 %.
+							Realice un algoritmo para determinar cuánto debe pagar por cada concepto una persona que
+							realiza una llamada.*/
+		System.out.println("  Ejercicio numero 22A:");
+		System.out.println("  Buena suerte con el resto!!");
+	}  //CIERRA EL EJ 22A
+	public void ej22B() { /*Compañía de paquetería
+							Una compañía de transporte internacional tiene servicio que se tarifica por zonas geográficas :
+							América del Norte, América Central, América del Sur, Europa y Asia.
+							El coste del servicio de transporte se basa en el peso del paquete (medido en gramos) y
+							y la zona a la que va dirigido. La tabla de tarifas responde al siguiente esquema:
+							PrecioTotal = Precio_peso + Precio_Destino
+							Precio_peso = 0,05€/Gr. ; Precio_destino = % región * Precio_Peso
+							La tabla de porcentajes por región es :
+							Europa 7%, America del Norte 12%, América Central 15%, América del Sur 18%, Asia 20%
+							Se deberá pedir el peso y el destino y presentar posteriormente el resultado.
+							No se hacen envíos si el paquete pesa menos de 750Gr.*/
+		System.out.println("  Ejercicio numero 22B:");
+		System.out.println("  Buena suerte con el resto!!");
+	}  //CIERRA EL EJ 22B	
+	public void ej22C() { /*Tipo de cadena
+							Se pedirá una cadena de texto y el programa deberá indicar los siguientes mensajes:
+							Cadena alfanumérica, si la cadena contiene números y letras
+							Cadena numérica, si la cadena sólo contiene número entre 0 y el 1
+							Cadena texto, si la cadena sólo contiene caracteres.
+							Investiga el código de caracteres ASCCI /UTF-8 para entender su forma de codificar y ordenar los
+							símbolos.
+							NOTA1: Utilizar la conversión de tipos predefinida de java
+							NOTA2: No se puede utilizar ninguna librería de java con funciones que resuelvan el problema
+							planteado.*/
+		System.out.println("  Ejercicio numero 22C:");
+		System.out.println("  Buena suerte con el resto!!");
+	}  //CIERRA EL EJ 22C	
+	public void ej22D() { /*Acceso con contraseña
+							Se dispondrá de un array de pares usuario/contraseña predefinido.
+							Se pedirá al usuario que introduzca un nombre y una contraseña.
+							Se buscará en el array comprobando ambos valores
+							Si es correcto, se mostrará el mensaje ‘Acceso Autorizado’ y se terminará el programa
+							Sino es correcto se mostrará el mensaje ‘Usuario o Contraseña incorrectos’ y se le concederán
+							dos intentos adiccionales.*/
+		System.out.println("  Ejercicio numero 22D:");
+		System.out.println("  Buena suerte con el resto!!");
+	}  //CIERRA EL EJ 22D	
+	public void ej22E() { /*Probabilidades
+							Genera un programa que genere 10 tiradas de un dado.
+							Deberá mostrar los resultados de la tiradas y la suma total de valores pares y la suma total de
+							valores impares*/
+		System.out.println("  Ejercicio numero 22E:");
+		System.out.println("  Buena suerte con el resto!!");
+	}  //CIERRA EL EJ 22E	
+	public void ej230() { /**/
+		System.out.println("  Ejercicio numero 230:");
+		System.out.println("  Buena suerte con el resto!!");
+	}  //CIERRA EL EJ 230	
+	public void ej232() { /**/
+		System.out.println("  Ejercicio numero 232:");
+		System.out.println("  Buena suerte con el resto!!");
+	}  //CIERRA EL EJ 232		
+	public void ej233() { /**/
+		System.out.println("  Ejercicio numero 233:");
+		System.out.println("  Buena suerte con el resto!!");
+	}  //CIERRA EL EJ 233		
+	public void ej234() { /**/
+		System.out.println("  Ejercicio numero 234:");
+		System.out.println("  Buena suerte con el resto!!");
+	}  //CIERRA EL EJ 234	
+	public void ej235() { /**/
+		System.out.println("  Ejercicio numero 235:");
+		System.out.println("  Buena suerte con el resto!!");
+	}  //CIERRA EL EJ 235	
+	public void ej236() { /**/
+		System.out.println("  Ejercicio numero 236:");
+		System.out.println("  Buena suerte con el resto!!");
+	}  //CIERRA EL EJ 236	
+	
+	
 }  //CLASS CIERRA
