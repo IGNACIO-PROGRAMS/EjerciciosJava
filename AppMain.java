@@ -27,10 +27,10 @@ public class AppMain { //CLASS ABRE
 		//ej216();
 		//ej217();
 		//ej218();
-		//ej220();
+		ej220();
 		//ej221();
 		//ej222();
-		ej223();
+		//ej223();
 		//ej224();
 		//ej225();
 		//ej226();
@@ -425,6 +425,8 @@ public class AppMain { //CLASS ABRE
 		} while (respuesta.equals("y") || respuesta.equals("Y"));
 		
 	}  //CIERRA EL EJ 221
+	
+	
 	public void ej222() { /*Diseña 2 funciones que acepten como parámetro un array de enteros y:
 							a) Muestren los valores del array separados por el símbolo ‘ ; ’
 							b) Incrementa en 1 los valores del array y los muestra*/
@@ -598,27 +600,99 @@ public class AppMain { //CLASS ABRE
 		System.out.println("  Ejercicio numero 22E:");
 		System.out.println("  Buena suerte con el resto!!");
 	}  //CIERRA EL EJ 22E	
-	public void ej230() { /**/
+	public void ej230() { /*Triángulo rectángulo.
+							Confecciona un programa que dibuje la siguiente figura en pantalla, de la forma más compacta
+							posible. Se pedirá el ancho de la base antes de pintar la figura. Controlar que la anchura de la base
+							sea mayor o igual que 3 y menor que 50.
+							*
+							**
+							***
+							…
+							************* <- Longitud de la base*/
 		System.out.println("  Ejercicio numero 230:");
 		System.out.println("  Buena suerte con el resto!!");
 	}  //CIERRA EL EJ 230	
-	public void ej232() { /**/
+	public void ej232() { /*Rectángulo
+							Confecciona una función que solicite ancho y alto de un rectángulo y lo dibuje en pantalla.
+							El ancho se cuenta como el número de espacios entre lados verticales + 2. Se le debe añadir los
+							delimitadores del rectángulo. Siempre ancho > 0 y < 77
+							El alto se cuenta como las líneas útiles entre lados horizontales. Alto >=0 y <=22
+							Ejemplo:
+							Rectángulo de 1 caracteres de alto x 10 de ancho
+							**************
+							* 1234567890 *
+							**************
+							Rectángulo de 2 caracteres de alto x 5 ancho
+							*********
+							* 12345 *
+							*       *
+							*********
+							Rectángulo de 0 caracteres de alto x 5 ancho
+							*********
+							*/
 		System.out.println("  Ejercicio numero 232:");
 		System.out.println("  Buena suerte con el resto!!");
 	}  //CIERRA EL EJ 232		
-	public void ej233() { /**/
+	public void ej233() { /*Ventana en modo texto
+							Confecciona un programa que dibuje una ventana en modo texto:
+							******************
+							* Nombre ventana *
+							******************
+							*                * -- numero de líneas útiles de la venta
+							******************
+							El programa pedirá el número de líneas útiles y el nombre de la ventana.
+							El número de líneas útiles debe ser >= 1 y < 23
+							La anchura de la ventana será igual a la longitud del nombre + 2 (espacios) +2 (delimitadores de
+							la ventana).*/
 		System.out.println("  Ejercicio numero 233:");
 		System.out.println("  Buena suerte con el resto!!");
 	}  //CIERRA EL EJ 233		
-	public void ej234() { /**/
+	public void ej234() { /*Ventana desplazada en horizontal
+							Modifica el programa 231 para que se solicite un desplazamiento a contar desde el prompt del
+							sistema. El desplazamiento no podrá ser negativo y deberá ser menor de 80 - anchura de la
+							ventana.*/
 		System.out.println("  Ejercicio numero 234:");
 		System.out.println("  Buena suerte con el resto!!");
 	}  //CIERRA EL EJ 234	
-	public void ej235() { /**/
+	public void ej235() { /*Se desea generar una función que permita calcular el coste del envío en función del peso del
+							paquete.
+							El peso se expresa en Kg, con resolución de gramos y el coste en euros.
+							La tabla de precios es la siguiente:
+							PAÍS           COSTE
+							Portugal       0,25 €
+							Francia        0,37 €
+							Italia         0,40 €
+							Reino Unido    0,45 €
+							Alemania       0,58 €
+							Grecia         0,58 €
+							Canadá         1,23 €
+							Estados Unidos 1,33 €
+							México         1,45 €
+							Colombia       2,03 €
+							Chile          3,01 €
+							Argentina      2,99 €
+							La función pedirá el peso del paquete, el país
+							y presentará un texto diciendo:
+							El coste del paquete es de: xxxxx €
+							Datos para validar el ejercicio:
+							 Portugal, 10 Kg - Coste: 2,5 €
+							 Canadá, 100 Kg  Coste 123,00 €
+							 Chile, 2,3 Kg.  6,92 €
+							Si no se elige un país de la lista, se deberá mostrar mensaje de error.*/
 		System.out.println("  Ejercicio numero 235:");
 		System.out.println("  Buena suerte con el resto!!");
 	}  //CIERRA EL EJ 235	
-	public void ej236() { /**/
+	public void ej236() { /*Menú simple para elección de funciones
+							Se debe crear un programa que solicite un número entre 1 y 5.
+							Las opciones del menú serán las siguientes:
+							1, “Ejecuta opción 1”
+							2, “Ejecuta opción 2”
+							….. …… ….. ….
+							5, “Ejecuta opción 5”
+							0, “Terminar aplicación”
+							Para cada una de las opciones deberá existir una función que al menos imprima en pantalla la
+							opción elegida. Si se pulsa 1 se debería visualizar por pantalla “Ejecuta opción 1”.
+							Si el usuario no inserta ninguno de los posibles valores se deberá mostrar un mensaje de error.*/
 		System.out.println("  Ejercicio numero 236:");
 		System.out.println("  Buena suerte con el resto!!");
 	}  //CIERRA EL EJ 236	
