@@ -27,14 +27,14 @@ public class AppMain { //CLASS ABRE
 		//ej216();
 		//ej217();
 		//ej218();
-		ej220();
+		//ej220();
 		//ej221();
 		//ej222();
 		//ej223();
 		//ej224();
 		//ej225();
 		//ej226();
-		//ej227();
+		ej227();
 		//ej228();
 		//ej229();
 		//ej229B();
@@ -355,6 +355,47 @@ public class AppMain { //CLASS ABRE
 			else {System.out.println("Por favor responde sólo con: \"si\", \"mayor\" o \"menor\".");}
 		} while (salir==false);	
 	}  //CIERRA EL EJ 218
+	public int arraymaximo (int x []) {
+		int maximo = x[0];  // Create a 'max age' variable and assign the first array element of ages to it
+	    /*for (int i3 : x) {  // Loop through the elements of the ages array to find the max age    
+	      if (maximo < i3) {  // Check if the current age is mas grande than the current 'lowest age'
+	        maximo = i3;  // If the mayor age is found, update 'lowest age' with that element
+	      }
+	    }*/
+	    for (int i=0; i<x.length;i++) {
+	    	if (maximo < (x[i])) {  
+		        maximo = (x[i]);  
+		      }  
+	    }
+	    return maximo;
+	}	
+	public int arrayminimo (int x []) {
+		int minimo = x[0];  // Create a 'lowest age' variable and assign the first array element of ages to it
+	    
+		/*for (int i2 : x) {  // Loop through the elements of the ages array to find the lowest age    
+	      if (minimo > i2) {  // Check if the current age is smaller than the current 'lowest age'
+	        minimo = i2;  // If the smaller age is found, update 'lowest age' with that element
+	      }
+	    }*/
+		for (int i=0; i<x.length;i++) {
+	    	if (minimo > (x[i])) {  
+		        minimo = (x[i]);  
+		      }  
+	    }
+	    return minimo;
+	}	
+	public double arraymedia (int x []) {
+		double media, sum = 0;
+	    int length = x.length; // Get the length of the array
+	    /*for (int i : x) {  // Loop through the elements of the array
+	      sum += i;
+	    }*/
+	    for (int i=0; i<x.length;i++) {
+	    	 sum = sum+(x[i]);     
+	    }
+	    media = sum / length;  // Calculate the average by dividing the sum by the length
+	    return media;
+	}
 	public void ej220() { /*Diseñar 3 funciones que devuelvan:
 							a) Valor máximo almacenado en un array de enteros.
 							b) Valor mínimo almacenado en un array de enternos.
@@ -378,31 +419,41 @@ public class AppMain { //CLASS ABRE
 		int e = sc.nextInt();
 		int[] numeros = {a, b, c, d, e};
 		
-		float media, sum = 0;
+		double media = arraymedia (numeros);
+		/*double media, sum = 0;
 	    int length = numeros.length; // Get the length of the array
 	    for (int i : numeros) {  // Loop through the elements of the array
 	      sum += i;
 	    }
-	    media = sum / length;  // Calculate the average by dividing the sum by the length
-			 
-	    int minimo = numeros[0];  // Create a 'lowest age' variable and assign the first array element of ages to it
+	    media = sum / length;  // Calculate the average by dividing the sum by the length*/
+	    
+	    int minimo = arrayminimo (numeros);	 
+	    /*int minimo = numeros[0];  // Create a 'lowest age' variable and assign the first array element of ages to it
 	    for (int i2 : numeros) {  // Loop through the elements of the ages array to find the lowest age    
 	      if (minimo > i2) {  // Check if the current age is smaller than the current 'lowest age'
 	        minimo = i2;  // If the smaller age is found, update 'lowest age' with that element
 	      }
-	    }
-	    
-	    int maximo = numeros[0];  // Create a 'max age' variable and assign the first array element of ages to it
+	    }*/
+	    int maximo = arraymaximo (numeros);	    
+	    /*int maximo = numeros[0];  // Create a 'max age' variable and assign the first array element of ages to it
 	    for (int i3 : numeros) {  // Loop through the elements of the ages array to find the max age    
 	      if (maximo < i3) {  // Check if the current age is mas grande than the current 'lowest age'
 	        maximo = i3;  // If the mayor age is found, update 'lowest age' with that element
 	      }
-	    }
+	    }*/
 	    
 		System.out.println("El valor máximo almacenado en el array es de: "+maximo);
 		System.out.println("El valor minimo almacenado en el array es de: "+minimo);
 		System.out.println("La media de los valores almacenados en el array es de: "+media);
 	}  //CIERRA EL EJ 220
+	public String unoequisdos () {
+		double aleatorio = Math.random();
+		String unoequisdos = "";
+		if (aleatorio>=0 & aleatorio<=0.7) {unoequisdos = "1";}
+		else if (aleatorio>0.7 & aleatorio<=0.9) {unoequisdos = "X";}
+		else if (aleatorio>0.9) {unoequisdos = "2";}
+		return unoequisdos;
+	}
 	public void ej221() { /*Diseñar una función que , genere un número aleatorio y en función de su valor, retorne un
 							carácter de acuerdo a la siguiente regla:
 							 Si el número está entre 0 y 0,7 , devuelve un ‘1’
@@ -411,64 +462,117 @@ public class AppMain { //CLASS ABRE
 		
 		System.out.println("  Ejercicio numero 221:");
 		System.out.println("  Voy a generar un caracter aleatorio :).");
-		double aleatorio = Math.random();
-		
 		String respuesta = "y";
+		
+		
 		do {
-			
+		/*double aleatorio = Math.random();	
 		if (aleatorio>=0 & aleatorio<=0.7) {System.out.println("Caracter generado: 1");}
 		else if (aleatorio>0.7 & aleatorio<=0.9) {System.out.println("Caracter generado: X");}
-		else if (aleatorio>0.9) {System.out.println("Caracter generado: X");}
+		else if (aleatorio>0.9) {System.out.println("Caracter generado: 2");}*/
+		String aleatorio = unoequisdos ();
+		System.out.println("Caracter generado: "+aleatorio);
 		System.out.println("Quieres repetir? Y/N");
 		respuesta = sc.next();
-		aleatorio = Math.random();
 		} while (respuesta.equals("y") || respuesta.equals("Y"));
 		
-	}  //CIERRA EL EJ 221
-	
-	
+	}  //CIERRA EL EJ 221	
+	public void arrayprint (int x []) {
+		System.out.print ("{");
+	    for (int i=0; i<x.length;i++) {
+	        System.out.print (x[i]); 
+	        if (i<x.length-1) {
+	            System.out.print (";"); 
+	        }
+	    }
+	    System.out.print ("}");
+	}	
+	public void arrayprintmasuno (int x []) {
+		System.out.print ("{");
+	    for (int i=0; i<x.length;i++) {
+	        System.out.print (x[i]+1); 
+	        if (i<x.length-1) {
+	            System.out.print (";"); 
+	        }
+	    }
+	    System.out.print ("}");
+	}	
 	public void ej222() { /*Diseña 2 funciones que acepten como parámetro un array de enteros y:
 							a) Muestren los valores del array separados por el símbolo ‘ ; ’
 							b) Incrementa en 1 los valores del array y los muestra*/
 		
 		System.out.println("  Ejercicio numero 222:");
-		System.out.println("Vas a darme un array de enteros y te voy a mostrar un listado y sumarle uno a todos :).");
+		System.out.println("Vas a darme un array de enteros y te voy a mostrar un listado y sumarle uno a todos.");
 
 		int arraySize; //Variable para el tamaño de la array
 				
 		System.out.println("Dime el tamaño de la array:");
 		arraySize=sc.nextInt(); // Guardamos el tamaño de la array
-		
 		int array[]= new int[arraySize]; //Definimos la array con la variable del tamaño
-		
 		System.out.println("Dime los enteros del array");
 		for (int i = 0; i < array.length; i++) {
 			array[i]=sc.nextInt();  //Guardamos cada valor en su posicion
 		}
 		
 		System.out.println("Los datos del array son:");
-		for (int agh : array) {
-			  System.out.println(agh);
-			}
+		arrayprint(array);
+		System.out.println("");
 		System.out.println("Y los datos mas uno son:");
-		for (int agh : array) {
+		arrayprintmasuno(array);
+		System.out.println("");
+		/*for (int agh : array) {
 			  System.out.println(agh+1);
-			}
+			}*/
 		
-	}  //CIERRA EL EJ 222
+	}  //CIERRA EL EJ 222	
+	public void arraypares (int x []) {
+		System.out.print ("{");
+	    for (int i=0; i<x.length;i++) {
+	        int par = ((x[i]) % 2);
+	        
+	    	if (par == 0) {
+	        	System.out.print (x[i]); 
+	        	if (i<x.length-1) {
+	        		System.out.print (";"); 
+	        	}
+	        }
+	    }
+	    System.out.print ("}");
+	}	
 	public void ej223() { /*Dado un array de enteros, mostrar por pantalla sólo los valores pares.*/
 		
 		System.out.println("  Ejercicio numero 223:");
-		System.out.println("  Buena suerte con el resto!!");
+		System.out.println("Vas a darme un array de enteros y te voy a mostrar los valores pares.");
+
+		int arraySize; //Variable para el tamaño de la array
+				
+		System.out.println("Dime el tamaño de la array:");
+		arraySize=sc.nextInt(); // Guardamos el tamaño de la array
+		int array[]= new int[arraySize]; //Definimos la array con la variable del tamaño
+		System.out.println("Dime los enteros del array");
+		for (int i = 0; i < array.length; i++) {
+			array[i]=sc.nextInt();  //Guardamos cada valor en su posicion
+		}
+		System.out.println("Los datos del array pares son:");
+		arraypares(array);
+		System.out.println("");
+		
 	}  //CIERRA EL EJ 223
-	public void ej224() { /*Pedir una cadena e inver􀆟r el orden de las palabras que con􀆟ene. Mostrar el resultado en
+	public void ej224() { /*Pedir una cadena e invertir el orden de las palabras que contiene. Mostrar el resultado en
 							pantalla.*/
 		
 		System.out.println("  Ejercicio numero 224:");
-		System.out.println("  Buena suerte con el resto!!");
+		System.out.println("  Dime una palabra o frase: ");
+		
+		String cadena = sc.nextLine(); // sc.next(); guarda hasta que hay un espacio, sc.nextLine(); guarda hasta un enter.
+		String cadenainvertida = "";
+		for(int i = cadena.length()-1; i>=0; i--)
+	    {cadenainvertida = cadenainvertida + cadena.charAt(i);}
+		System.out.println (cadenainvertida);
+				
 	}  //CIERRA EL EJ 224
 	public void ej225() { /*Digito de control en DNI: El algoritmo de cálculo del dígito de control es el siguiente:Se divide el
-							número entre 23 y el resto se sus􀆟tuye por una letra que se determina por inspección mediante
+							número entre 23 y el resto se sustituye por una letra que se determina por inspección mediante
 							la siguiente tabla:
 							RESTO 0  1  2  3  4  5  6  7  8  9  10  11
 							LETRA T  R  W  A  G  M  Y  F  P  D  X   B
@@ -478,7 +582,20 @@ public class AppMain { //CLASS ABRE
 							sería la Z: 12345678Z.*/
 		
 		System.out.println("  Ejercicio numero 225:");
-		System.out.println("  Buena suerte con el resto!!");
+		System.out.println("  Dime un dni sin letra y te digo cual le corresponde: ");
+		int dni = sc.nextInt();
+		int resto = dni % 23;
+		char tuletra = ' ';
+		char letradni [][] = {{0,'T'},{1,'R'},{2,'W'},{3,'A'},{4,'G'},{5,'M'},{6,'Y'},{7,'F'},{8,'P'},{9,'D'},{10,'X'},{11,'B'},{12,'N'},{13,'J'},{14,'Z'},
+				{15,'S'},{16,'Q'},{17,'V'},{18,'H'},{19,'L'},{20,'C'},{21,'K'},{22,'E'}}; // aqui hay que usar la ' en vez de la "
+		for (int i=0; i<letradni.length;i++) {
+	        if (letradni[i][0]==resto) {
+	            tuletra = letradni [i][1]; 
+	        }
+	    }
+		
+		System.out.println("Tu letra es: "+tuletra);
+		
 	}  //CIERRA EL EJ 225
 	public void ej226() { /*Realiza un programa que genere un pronós􀆟co de resultados de forma automá􀆟ca. El resultado
 							se mostrará por pantalla:
@@ -489,14 +606,44 @@ public class AppMain { //CLASS ABRE
 							U􀆟liza la función que diseñaste en el ejercicio 221*/
 		
 		System.out.println("  Ejercicio numero 226:");
-		System.out.println("  Buena suerte con el resto!!");
+		System.out.println("  Pronostico de resultados de quiniela: ");
+		int vueltas = 1;
+		do {
+			String a = unoequisdos ();
+			//String b = unoequisdos ();
+			//String c = unoequisdos ();
+			//System.out.println(vueltas+" ["+a+","+b+","+c+"]");
+			System.out.println(vueltas+" [1,X,2]= "+" ["+a+"]");
+			vueltas++;
+		}
+		while (vueltas <=15);
 	}  //CIERRA EL EJ 226
 	public void ej227() { /*Quiniela
 							Genera 3 pronós􀆟cos, almacenando todos los valores en un array. Imprime los resultados como
 							si fuese una quiniela de 3 apuestas. U􀆟liza los resultados del ejercicio 226*/
 		
 		System.out.println("  Ejercicio numero 227:");
-		System.out.println("  Buena suerte con el resto!!");
+		System.out.println("  Vamos a hacer una quiniela de tres resultados: ");
+		String quiniela[][]= new String[15][3];
+		int vueltas = 0;
+		for (int i = 0; i < quiniela.length; i++) {
+			String a = unoequisdos ();
+			String b = unoequisdos ();
+			String c = unoequisdos ();
+			quiniela[i][0]= a; 
+			quiniela[i][1]= b;
+			quiniela[i][2]= c;
+		}
+		
+		
+		do {
+			System.out.print((vueltas+1));
+			if ((vueltas+1)<10) {System.out.print((" "));};
+			System.out.println(" [1,X,2]= "+" ["+quiniela[vueltas][0]+"]"+"["+quiniela[vueltas][1]+"]"+"["+quiniela[vueltas][2]+"]");
+			vueltas++;
+		}
+		while (vueltas <=14);
+		
 	}  //CIERRA EL EJ 227
 	public void ej228() { /*Conversor Binario Decimal
 							Escribir un programa , que permita introducir un número binario de cualquier longitud y calcule
