@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AppMain { //CLASS ABRE
@@ -34,9 +35,10 @@ public class AppMain { //CLASS ABRE
 		//ej224();
 		//ej225();
 		//ej226();
-		ej227();
+		//ej227();
 		//ej228();
-		//ej229();
+		//ej228paso4();
+		ej229();
 		//ej229B();
 		//ej22A();
 		//ej22B();
@@ -642,9 +644,41 @@ public class AppMain { //CLASS ABRE
 			System.out.println(" [1,X,2]= "+" ["+quiniela[vueltas][0]+"]"+"["+quiniela[vueltas][1]+"]"+"["+quiniela[vueltas][2]+"]");
 			vueltas++;
 		}
-		while (vueltas <=14);
-		
-	}  //CIERRA EL EJ 227
+		while (vueltas <=14);		
+	}  //CIERRA EL EJ 227	
+	public String decimalabinario(int numero){
+		   ArrayList<String> binario = new ArrayList<String>();
+		   int resto;
+		   String binarioString = "";
+
+		   do{
+		      resto = numero%2;
+		      numero = numero/2;
+		      binario.add(0, Integer.toString(resto));
+		   }while(numero >= 2); //Haremos el bucle hasta que el cociente no se pueda dividir mas
+
+		   binario.add(0, Integer.toString(numero)); //Cogeremos el ultimo cociente
+
+		   //Cogemos cada uno de los elementos del ArrayList y los juntamos en un String
+		   for(int i = 0; i < binario.size(); i++){
+		       binarioString += binario.get(i);
+		   }
+		   return binarioString;
+		 }	
+	public int binarioadecimal(String binario){
+		String AGH = "";
+		//int longitud=Integer.toString(binario).length();
+		String arraybinario[]= new String[binario.length()];  //Cuando es string ponemos .lenght() Cuando es array ponemos .length
+		for(int i=0; i<arraybinario.length;i++) {
+			AGH = Character.toString(binario.charAt(i));
+			arraybinario[i]=AGH;
+		}
+		int decimal = 0;
+	    for(int i=arraybinario.length-1; i>=0;i--) {
+		decimal=decimal + (Integer.parseInt(arraybinario[i])*(int)Math.pow(2, arraybinario.length-i-1));	//Integer.parseInt para convertir el maldito string en int y por algun extraño motivo una potencia de 2 se cree que es un double y taambien hay que pasarlo a int
+		}
+	    return decimal;
+	}	
 	public void ej228() { /*Conversor Binario Decimal
 							Escribir un programa , que permita introducir un número binario de cualquier longitud y calcule
 							el número decimal asociado y viceversa.
@@ -660,8 +694,88 @@ public class AppMain { //CLASS ABRE
 							0.- Salir del programa*/
 	
 	System.out.println("  Ejercicio numero 228:");
-	System.out.println("  Buena suerte con el resto!!");
-	}  //CIERRA EL EJ 228
+	System.out.println("  Empecemos con: Dime un binario: ");
+	/*Este ejercicio es un puto infierno porque si tienes un string 1 no es un int 1 es un 49 y te hace un lio, tienes que estar todo el maldito rato convirtiendo strings chars e ints*/
+	
+	String binario = sc.next();
+	String AGH = "";
+	//int longitud=Integer.toString(binario).length();
+	String arraybinario[]= new String[binario.length()];  //Cuando es string ponemos .lenght() Cuando es array ponemos .length
+	for(int i=0; i<arraybinario.length;i++) {
+		AGH = Character.toString(binario.charAt(i));
+		arraybinario[i]=AGH;
+	}
+	System.out.println ("El array binario es: ");
+	System.out.print ("{");
+    for (int i=0; i<arraybinario.length;i++) {
+        System.out.print (arraybinario[i]); 
+        if (i<arraybinario.length-1) {
+            System.out.print (","); 
+        }
+    }
+    System.out.println ("}");
+    int decimal = 0;
+    for(int i=arraybinario.length-1; i>=0;i--) {
+	decimal=decimal + (Integer.parseInt(arraybinario[i])*(int)Math.pow(2, arraybinario.length-i-1));	//Integer.parseInt para convertir el maldito string en int y por algun extraño motivo una potencia de 2 se cree que es un double y taambien hay que pasarlo a int
+	}
+    System.out.println ("El decimal es: "+decimal);
+    System.out.println("  Ahora compliquemoslo mas: Dime un decimal: ");
+    decimal = sc.nextInt();
+    
+  
+    ArrayList<String> binariofromdecimal = new ArrayList<String>(); //SUPTMDR que no funciona si no pones import java.util.ArrayList antes de class;
+    int resto;
+    String binariorespuesta = "";
+
+    do{
+       resto = decimal%2;
+       decimal = decimal/2;
+       binariofromdecimal.add(0, Integer.toString(resto));
+    }while(decimal >= 2); //Haremos el bucle hasta que el cociente no se pueda dividir mas
+
+    binariofromdecimal.add(0, Integer.toString(decimal)); //Cogeremos el ultimo cociente
+
+    //Cogemos cada uno de los elementos del ArrayList y los juntamos en un String
+    for(int i = 0; i < binariofromdecimal.size(); i++){
+        binariorespuesta += binariofromdecimal.get(i);
+    }
+    System.out.println ("El binario es: "+binariorespuesta);
+    
+    
+	}  //CIERRA EL EJ 228	
+	public void ej228paso4() {
+
+			System.out.println("  Ejercicio numero 228 paso 4, con menu:");
+			System.out.println("Elige una opcion:");
+			System.out.println("1.- Convertir binario a decimal");
+			System.out.println("2.- Convertir decimal a binario");
+			System.out.println("0.- Salir del programa");
+			int menu= sc.nextInt();
+			int decimal = 0;
+			int decimalrespuesta = 0;
+			String binariorespuesta = "";
+			String binario = "";
+			switch(menu) {
+				case 0:
+					System.out.println("Saliendo del programa");
+					break;  
+				case 1:
+					System.out.println("Dime un binario:");
+					binario= sc.next();
+					decimalrespuesta=binarioadecimal(binario);
+					System.out.println ("El decimal es: "+decimalrespuesta);
+					break;
+				case 2:
+					System.out.println("Dime un decimal:");
+					decimal = sc.nextInt();
+					binariorespuesta=decimalabinario(decimal);
+					System.out.println ("El binario es: "+binariorespuesta);
+					break;
+				default:
+					System.out.println("Opcion incorrecta. Saliendo del programa.");
+					break; 
+			}
+	}  //CIERRA EL EJ 228paso4
 	public void ej229() { /*Estación meteorológica
 							En una estación meteorológica registramos la temperatura (en grados cen􀆡grados) en cada hora
 							durante el día. Almacenamos el resultado en un vector de 24 componentes.
@@ -679,8 +793,70 @@ public class AppMain { //CLASS ABRE
 							numero = (int) (Math.random() * limite) ; Donde “limite” representa el límite superior del rango,
 							en este caso, 41.*/
 	
-	System.out.println("  Ejercicio numero 229:");
-	System.out.println("  Buena suerte con el resto!!");
+	System.out.println("  Ejercicio numero 229 Estacion meteorologica:");
+	int temperaturas [] = new int[24];
+	Boolean salir = false;
+	int posicionminima = 0;
+	int posicionmaxima = 0;
+	do {
+		System.out.println("Elige una opcion:");
+		System.out.println("1.- Intro datos del dia manual");
+		System.out.println("2.- Intro datos del dia Auto");
+		System.out.println("3.- Muestra Datos");
+		System.out.println("4.- Muestra maximos y minimos");
+		System.out.println("5.- Muestra Temperatura Media");
+		System.out.println("6.- Salir del programa");
+		int menu= sc.nextInt();
+		switch(menu) {
+		case 1:
+			for(int i=0; i<temperaturas.length;i++) {
+				System.out.println("Dime la temperatura a las "+i+" horas");
+				temperaturas [i] = sc.nextInt();
+			}
+			break;  
+		case 2:
+			for(int i=0; i<temperaturas.length;i++) {
+				temperaturas [i] = (int) (Math.random()*40);
+			}
+			break;
+		case 3:
+			arrayprint (temperaturas);
+			System.out.println("");
+			break;
+		case 4:
+			
+			int minimo = temperaturas[0];  // Create a 'lowest age' variable and assign the first array element of ages to it
+		    for (int i=0; i<temperaturas.length;i++) {
+		    	if (minimo > (temperaturas[i])) {  
+			        minimo = (temperaturas[i]);
+			        posicionminima=i;
+			    }  
+		    }
+		    System.out.println("La temperatura minima es: "+minimo+" Y ocurre a las: "+posicionminima+" Horas.");		    
+		    
+		    int maximo = temperaturas[0];		    
+		    for (int i=0; i<temperaturas.length;i++) {
+		    	if (maximo < (temperaturas[i])) {  
+			        maximo = (temperaturas[i]);
+			        posicionmaxima=i;
+			      }  
+		    }
+		    System.out.println("La temperatura maxima es: "+maximo+" Y ocurre a las: "+posicionmaxima+" Horas.");
+		    
+		    break;
+		case 5:
+			System.out.println("La temperatura media es: " + arraymedia (temperaturas));
+			break;
+		case 6:
+			salir=true;
+			break;	
+		default:
+			System.out.println("Opcion incorrecta");
+			break; 
+		}
+	} while (salir==false);
+		
+
 	}  //CIERRA EL EJ 229
 	public void ej229B() { /*Conversor Decimal Hexadecimal
 							Escribir un programa , que permita introducir un número decimal entre 0 y 65536 y calcule el
