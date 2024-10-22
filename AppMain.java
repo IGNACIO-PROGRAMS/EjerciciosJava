@@ -38,14 +38,14 @@ public class AppMain { //CLASS ABRE
 		//ej227();
 		//ej228();
 		//ej228paso4();
-		ej229();
-		//ej229B();
+		//ej229();
+		ej229B();
 		//ej22A();
 		//ej22B();
 		//ej22C();
 		//ej22D();
 		//ej22E();
-		//ej230();
+		//ej230(); YA HECHO
 		//ej232();
 		//ej233();
 		//ej234();
@@ -670,9 +670,9 @@ public class AppMain { //CLASS ABRE
 		//int longitud=Integer.toString(binario).length();
 		String arraybinario[]= new String[binario.length()];  //Cuando es string ponemos .lenght() Cuando es array ponemos .length
 		for(int i=0; i<arraybinario.length;i++) {
-			AGH = Character.toString(binario.charAt(i));
+			AGH = Character.toString(binario.charAt(i)); //Uso AGH que es tipo string para ir guardando un char del string que tiene el binario
 			arraybinario[i]=AGH;
-		}
+		} // meto en arraybinario el string binario
 		int decimal = 0;
 	    for(int i=arraybinario.length-1; i>=0;i--) {
 		decimal=decimal + (Integer.parseInt(arraybinario[i])*(int)Math.pow(2, arraybinario.length-i-1));	//Integer.parseInt para convertir el maldito string en int y por algun extraño motivo una potencia de 2 se cree que es un double y taambien hay que pasarlo a int
@@ -855,8 +855,6 @@ public class AppMain { //CLASS ABRE
 			break; 
 		}
 	} while (salir==false);
-		
-
 	}  //CIERRA EL EJ 229
 	public void ej229B() { /*Conversor Decimal Hexadecimal
 							Escribir un programa , que permita introducir un número decimal entre 0 y 65536 y calcule el
@@ -865,7 +863,81 @@ public class AppMain { //CLASS ABRE
 							Notas para la implementación
 							- Si el número hexadecimal posee menos de 4 digitos, se rellenan los faltantes con 0.*/
 		System.out.println("  Ejercicio numero 229B:");
-		System.out.println("  Buena suerte con el resto!!");
+		System.out.println("  Vamos ha hacer un conversor Hexadecimal:");
+		System.out.println("Elige una opcion:");
+		System.out.println("1.- Convertir decimal a hexadecimal");
+		System.out.println("2.- Convertir hexadecimal a decimal");
+		System.out.println("0.- Salir del programa");
+		int menu= sc.nextInt();
+		int decimal;
+		String hexadecimal;
+		String hexadecimalrespuesta="";
+		int decimalrespuesta;
+		switch(menu) {
+		case 0:
+			System.out.println("Saliendo del programa");
+			break;
+		case 1:
+			System.out.println("Dime un decimal:");
+			decimal = sc.nextInt();
+			String[] hexa = new String[4];
+			int resto;
+			int contador = 3;
+			do{
+			      resto = decimal%16;
+			      decimal = decimal/16;
+			      hexa [contador]= Integer.toString(resto);
+			      if (hexa[contador].equals("10")) {hexa [contador]="A";};
+					if (hexa[contador].equals("11")) {hexa [contador]="B";};
+					if (hexa[contador].equals("12")) {hexa [contador]="C";};
+					if (hexa[contador].equals("13")) {hexa [contador]="D";};
+					if (hexa[contador].equals("14")) {hexa [contador]="E";};
+					if (hexa[contador].equals("15")) {hexa [contador]="F";};
+				 contador--;	
+			   }while(decimal >= 16); //Haremos el bucle hasta que el cociente no se pueda dividir mas
+
+			hexa [contador]= Integer.toString(decimal); //Cogeremos el ultimo cociente
+			if (hexa[contador].equals("10")) {hexa [contador]="A";};
+			if (hexa[contador].equals("11")) {hexa [contador]="B";};
+			if (hexa[contador].equals("12")) {hexa [contador]="C";};
+			if (hexa[contador].equals("13")) {hexa [contador]="D";};
+			if (hexa[contador].equals("14")) {hexa [contador]="E";};
+			if (hexa[contador].equals("15")) {hexa [contador]="F";};
+			
+			System.out.print ("El hexadecimal es: "+hexadecimalrespuesta);
+			for (int i=0; i<hexa.length;i++) {
+		        System.out.print (hexa[i]); 
+		    }
+		    System.out.println ("");
+			break;
+		case 2:
+			System.out.println("Dime un hexadecimal:");
+			hexadecimal = sc.next();
+			String AGH = "";
+			//int longitud=Integer.toString(binario).length();
+			String arrayhexadecimal[]= new String[hexadecimal.length()];  //Cuando es string ponemos .lenght() Cuando es array ponemos .length
+			for(int i=0; i<arrayhexadecimal.length;i++) {
+				AGH = Character.toString(hexadecimal.charAt(i)); //Uso AGH que es tipo string para ir guardando un char del string que tiene el binario
+				if (AGH.equals("A")) {AGH="10";};
+				if (AGH.equals("B")) {AGH="11";};
+				if (AGH.equals("C")) {AGH="12";};
+				if (AGH.equals("D")) {AGH="13";};
+				if (AGH.equals("E")) {AGH="14";};
+				if (AGH.equals("F")) {AGH="15";};
+				arrayhexadecimal[i]=AGH;
+			} // meto en arrayhexadecimal el string hexadecimal
+			decimalrespuesta = 0;
+		    for(int i=arrayhexadecimal.length-1; i>=0;i--) {
+			decimalrespuesta=decimalrespuesta + (Integer.parseInt(arrayhexadecimal[i])*(int)Math.pow(16, arrayhexadecimal.length-i-1));	//Integer.parseInt para convertir el maldito string en int y por algun extraño motivo una potencia de 2 se cree que es un double y taambien hay que pasarlo a int
+			}						
+			System.out.println ("El decimal es: "+decimalrespuesta);
+			break;
+		default:
+			System.out.println("Opcion incorrecta. Saliendo del programa.");
+			break;
+		}	
+			
+			
 	}  //CIERRA EL EJ 229B
 	public void ej22A() { /*Coste telefónico
 							La política de cobro de una compañía telefónica es: cuando se realiza una llamada, el cobro es
@@ -923,6 +995,7 @@ public class AppMain { //CLASS ABRE
 		System.out.println("  Ejercicio numero 22E:");
 		System.out.println("  Buena suerte con el resto!!");
 	}  //CIERRA EL EJ 22E	
+	
 	public void ej230() { /*Triángulo rectángulo.
 							Confecciona un programa que dibuje la siguiente figura en pantalla, de la forma más compacta
 							posible. Se pedirá el ancho de la base antes de pintar la figura. Controlar que la anchura de la base
@@ -933,7 +1006,24 @@ public class AppMain { //CLASS ABRE
 							…
 							************* <- Longitud de la base*/
 		System.out.println("  Ejercicio numero 230:");
-		System.out.println("  Buena suerte con el resto!!");
+		System.out.println("  Vamos a dibujar un triangulo rectangulo.");
+		int base;
+		do {
+		System.out.println("Dime el tamaño de la base(3>=base<50): ");		
+		base = sc.nextInt ();
+		if (base<3 || base>=50) {
+			System.out.println("Tamaño erroneo");	
+		}
+		} while (base<3 || base>=50);
+		
+		int altura;
+		for (int h=1; h<=base; h++) {
+			altura=h;	
+				for (int i=0; i<altura; i++) {
+					System.out.print("*");
+					}
+				System.out.println("");				
+		}				
 	}  //CIERRA EL EJ 230	
 	public void ej232() { /*Rectángulo
 							Confecciona una función que solicite ancho y alto de un rectángulo y lo dibuje en pantalla.
