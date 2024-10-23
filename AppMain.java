@@ -39,12 +39,12 @@ public class AppMain { //CLASS ABRE
 		//ej228();
 		//ej228paso4();
 		//ej229();
-		ej229B();
+		//ej229B();
 		//ej22A();
 		//ej22B();
 		//ej22C();
 		//ej22D();
-		//ej22E();
+		ej22E();
 		//ej230(); YA HECHO
 		//ej232();
 		//ej233();
@@ -949,7 +949,28 @@ public class AppMain { //CLASS ABRE
 							Realice un algoritmo para determinar cuánto debe pagar por cada concepto una persona que
 							realiza una llamada.*/
 		System.out.println("  Ejercicio numero 22A:");
-		System.out.println("  Buena suerte con el resto!!");
+		System.out.println("Vamos a cobrarte por llamar por telefono.");
+		
+		System.out.println("Dime cuanto tiempo a durado la llamada en minutos: ");
+		double minutos = sc.nextInt ();
+		System.out.println("La llamada fue un domingo (si o no)? ");
+		String domingo = sc.next();
+		System.out.println("Fue por la mañana o por la tarde (m o t)? ");
+		String turno = sc.next();
+		
+		double coste = 0;
+		if (minutos <= 5) {coste=minutos*1;}
+		else if (minutos > 5 & minutos <= 8) {coste=5+((minutos-5)*0.8);}
+		else if (minutos > 8 & minutos <= 10) {coste=7.4+((minutos-8)*0.7);}
+		else if (minutos > 10) {coste=8.8+((minutos-10)*0.5);}
+		
+		System.out.println("El coste de la llamada es de : "+coste+" Euros Sin impuestos");
+		if (domingo.equals("si")) {coste=coste*1.03;}
+		else if (domingo.equals("no")) {
+			if (turno.equals("m")) {coste=coste*1.15;}
+			else if (turno.equals("t")) {coste=coste*1.10;}
+		}
+		System.out.println("El coste de la llamada es de : "+coste+" Euros Con impuestos");
 	}  //CIERRA EL EJ 22A
 	public void ej22B() { /*Compañía de paquetería
 							Una compañía de transporte internacional tiene servicio que se tarifica por zonas geográficas :
@@ -963,8 +984,63 @@ public class AppMain { //CLASS ABRE
 							Se deberá pedir el peso y el destino y presentar posteriormente el resultado.
 							No se hacen envíos si el paquete pesa menos de 750Gr.*/
 		System.out.println("  Ejercicio numero 22B:");
-		System.out.println("  Buena suerte con el resto!!");
+		System.out.println("  Vamos a enviar un paquete.");
+		System.out.println("Dime cuanto pesa en gramos.");
+		double peso=sc.nextInt();
+		if (peso<750) {System.out.println("Tu paquete es muy pequeño, no se puede enviar.");}
+		else if (peso>=750) {
+			double preciopeso=peso*0.05;
+			System.out.println("Dime a donde lo quieres mandar: ");
+			System.out.println("1.Europa");
+			System.out.println("2.America del Norte");
+			System.out.println("3.America Central");
+			System.out.println("4.America del Sur");
+			System.out.println("5.Asia");
+			int menu= sc.nextInt();
+			double preciototal;
+			switch(menu) {
+			case 1:
+				preciototal=preciopeso*1.07;
+				System.out.println("El precio del envio es de: "+preciototal+" Euros.");				
+				break;
+			case 2:
+				preciototal=preciopeso*1.12;
+				System.out.println("El precio del envio es de: "+preciototal+" Euros.");
+				break;
+			case 3:
+				preciototal=preciopeso*1.15;
+				System.out.println("El precio del envio es de: "+preciototal+" Euros.");
+				break;
+			case 4:
+				preciototal=preciopeso*1.18;
+				System.out.println("El precio del envio es de: "+preciototal+" Euros.");
+				break;
+			case 5:
+				preciototal=preciopeso*1.20;
+				System.out.println("El precio del envio es de: "+preciototal+" Euros.");
+				break;
+			default:
+				System.out.println("Opcion incorrecta");
+				break;	
+			}
+			
+		}
+		
 	}  //CIERRA EL EJ 22B	
+	public boolean esnumero(String cadena) {
+
+        boolean resultado;
+
+        try {
+            Integer.parseInt(cadena);
+            resultado = true;
+        } 
+        catch (NumberFormatException excepcion) {
+            resultado = false;
+        }
+
+        return resultado;
+    }
 	public void ej22C() { /*Tipo de cadena
 							Se pedirá una cadena de texto y el programa deberá indicar los siguientes mensajes:
 							Cadena alfanumérica, si la cadena contiene números y letras
@@ -976,7 +1052,23 @@ public class AppMain { //CLASS ABRE
 							NOTA2: No se puede utilizar ninguna librería de java con funciones que resuelvan el problema
 							planteado.*/
 		System.out.println("  Ejercicio numero 22C:");
-		System.out.println("  Buena suerte con el resto!!");
+		System.out.println("Escribe algo: ");
+		String algo = sc.next();
+		String arrayalgo[]=new String [algo.length()];
+		boolean alfanumerica=false;
+		for (int i=0;i<algo.length();i++) {
+			arrayalgo [i] = Character.toString(algo.charAt(i));
+		}		
+		if (esnumero(algo) == true) {            
+            System.out.println("La Cadena es numerica");
+        } else {        	
+        	for (int i=0;i<algo.length();i++) {
+    			alfanumerica=esnumero(arrayalgo[i]);
+    			if (alfanumerica==true) {System.out.println("La Cadena es alfanumerica"); break;}    			
+    		}
+        	if (alfanumerica==false) {System.out.println("La Cadena es de texto");}
+        }
+		
 	}  //CIERRA EL EJ 22C	
 	public void ej22D() { /*Acceso con contraseña
 							Se dispondrá de un array de pares usuario/contraseña predefinido.
@@ -986,16 +1078,39 @@ public class AppMain { //CLASS ABRE
 							Sino es correcto se mostrará el mensaje ‘Usuario o Contraseña incorrectos’ y se le concederán
 							dos intentos adiccionales.*/
 		System.out.println("  Ejercicio numero 22D:");
-		System.out.println("  Buena suerte con el resto!!");
+		int intentos=3;
+		while (intentos>0) {
+		System.out.println("Introduce tu usuario y tu contraseña");
+		System.out.println("Usuario: ");
+		String user=sc.next();
+		System.out.println("contraseña: ");
+		String pass=sc.next();
+		String [][] arrayuserpass = {{"user","pass"},{"user1","pass1"},{"user2","pass2"},{"user3","pass3"},{"user4","pass4"}};
+		boolean acceso=false;
+		for (int i=0;i<arrayuserpass.length;i++) {
+			if (user.equals(arrayuserpass[i][0])) {
+				for (int j=0;j<arrayuserpass[i].length;j++) {
+					if (pass.equals(arrayuserpass[i][j])) {System.out.println("Acceso Autorizado.");
+					acceso=true; intentos=0;
+					}
+				}
+			}
+		}
+		if (acceso==false) {
+			System.out.println("Usuario o Contraseña incorrectos.");
+			intentos--;
+			System.out.println(intentos+" restantes.");
+			}
+		}
+		
 	}  //CIERRA EL EJ 22D	
 	public void ej22E() { /*Probabilidades
 							Genera un programa que genere 10 tiradas de un dado.
 							Deberá mostrar los resultados de la tiradas y la suma total de valores pares y la suma total de
 							valores impares*/
 		System.out.println("  Ejercicio numero 22E:");
-		System.out.println("  Buena suerte con el resto!!");
-	}  //CIERRA EL EJ 22E	
-	
+		System.out.println("Vamos a tirar un dado 10 veces!!");
+	}  //CIERRA EL EJ 22E		
 	public void ej230() { /*Triángulo rectángulo.
 							Confecciona un programa que dibuje la siguiente figura en pantalla, de la forma más compacta
 							posible. Se pedirá el ancho de la base antes de pintar la figura. Controlar que la anchura de la base
