@@ -44,10 +44,10 @@ public class AppMain { //CLASS ABRE
 		//ej22B();
 		//ej22C();
 		//ej22D();
-		ej22E();
-		//ej230(); YA HECHO
+		//ej22E();
+		//ej230(); 
 		//ej232();
-		//ej233();
+		ej233();
 		//ej234();
 		//ej235();
 		//ej236();
@@ -1110,6 +1110,21 @@ public class AppMain { //CLASS ABRE
 							valores impares*/
 		System.out.println("  Ejercicio numero 22E:");
 		System.out.println("Vamos a tirar un dado 10 veces!!");
+		int[] tiradas = new int[10];
+		for (int i=0; i<tiradas.length; i++) {
+			tiradas[i]=(int)(Math.random()*10); 
+		}
+		System.out.print("Los resultados son: ");
+		arrayprint(tiradas);
+		int pares=0;
+		int impares=0;
+		for (int i=0; i<tiradas.length; i++) {
+			if ((tiradas[i]%2)==1) {impares=impares+tiradas[i];}; 
+			if ((tiradas[i]%2)==0) {pares=pares+tiradas[i];};
+		}
+		System.out.println("");
+		System.out.println("La suma total de los valores pares es: "+pares);		
+		System.out.println("Y La suma total de los valores impares es: "+impares);
 	}  //CIERRA EL EJ 22E		
 	public void ej230() { /*Triángulo rectángulo.
 							Confecciona un programa que dibuje la siguiente figura en pantalla, de la forma más compacta
@@ -1159,7 +1174,39 @@ public class AppMain { //CLASS ABRE
 							*********
 							*/
 		System.out.println("  Ejercicio numero 232:");
-		System.out.println("  Buena suerte con el resto!!");
+		System.out.println("  Vamos a dibujar un rectangulo.");
+		System.out.println("Dime el ancho: ");
+		int ancho=sc.nextInt();
+		ancho=ancho+4;
+		System.out.println("Dime el alto: ");
+		int alto=sc.nextInt();
+		alto=alto+2;
+		String[][] rectangulo=new String[alto][ancho];
+		/*for (int i=0; i<alto; i++) {				
+				for (int j=0; j<ancho; j++) {
+					rectangulo[0][j]="*";
+					rectangulo[alto-1][j]="*";
+					rectangulo[i][0]="*";
+					rectangulo[i][ancho-1]="*";					
+				}								
+		}*/
+		for (int i=0; i<alto; i++) {				
+			for (int j=0; j<ancho; j++) {
+				rectangulo[i][j]="*";								
+			}								
+	}
+		for (int i=1; i<alto-1; i++) {				
+			for (int j=1; j<ancho-1; j++) {
+				rectangulo[i][j]=" ";									
+			}								
+	}
+		for (int i=0; i<alto; i++) {				
+			for (int j=0; j<ancho; j++) {
+				System.out.print(rectangulo[i][j]);
+			}
+			System.out.println("");
+	}
+		
 	}  //CIERRA EL EJ 232		
 	public void ej233() { /*Ventana en modo texto
 							Confecciona un programa que dibuje una ventana en modo texto:
@@ -1174,6 +1221,37 @@ public class AppMain { //CLASS ABRE
 							la ventana).*/
 		System.out.println("  Ejercicio numero 233:");
 		System.out.println("  Buena suerte con el resto!!");
+		System.out.println("Dime el nombre: ");
+		String nombre=sc.next();
+		int ancho=nombre.length();
+		ancho=ancho+4;
+		System.out.println("Dime el alto: ");
+		int alto=sc.nextInt();
+		alto=alto+2;
+		String[][] rectangulo=new String[alto][ancho];		
+		for (int i=0; i<alto; i++) {				
+			for (int j=0; j<ancho; j++) {
+				rectangulo[i][j]="*";				
+			}								
+		}
+		for (int i=1; i<alto-1; i++) {				
+			for (int j=1; j<ancho-1; j++) {
+				rectangulo[i][j]=" ";
+				rectangulo[2][j]="*";				
+			}								
+		}
+						
+			for (int j=0; j<ancho-4; j++) {			
+				rectangulo[1][j+2]=nombre.substring(j,j+1);
+			}								
+		
+		
+		for (int i=0; i<alto; i++) {				
+			for (int j=0; j<ancho; j++) {
+				System.out.print(rectangulo[i][j]);
+			}
+			System.out.println("");
+		}
 	}  //CIERRA EL EJ 233		
 	public void ej234() { /*Ventana desplazada en horizontal
 							Modifica el programa 231 para que se solicite un desplazamiento a contar desde el prompt del
